@@ -1,11 +1,9 @@
-
-
 // (==) igual sin verificar el tipo
 // 2 == "2"
 // (===) verificacion del tipo y valor
 // 2 != "2"
 
-console.log(null == undefined); 
+console.log(null == undefined);
 console.log(0 == false);
 console.log("0" == false);
 console.log(0 == "");
@@ -19,10 +17,10 @@ let a = b === 5 ? 5 : 4;
 
 // false, undefined, null, 0, NaN, ''
 
-if(''){
-    console.log("VERDADERO");
+if ("") {
+  console.log("VERDADERO");
 } else {
-    console.log("FALSE");
+  console.log("FALSE");
 }
 
-
+[4, 6, 7, 8].forEach((x) => console.log(x));
