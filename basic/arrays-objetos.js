@@ -13,13 +13,21 @@ const inventors = [
 function printInventors(inventors) {
   console.log("Nombre      Apellido     Año");
   console.log("--------------------------------");
-  inventors.forEach(function (inventor) {
-    console.log(
-      `${inventor.first.padEnd(12, " ")}${inventor.last.padEnd(12, " ")}${
-        inventor.year
-      }`
-    );
-  });
+  inventors.forEach(miprint); //function (inventor) {
+  // console.log(
+  //   `${inventor.first.padEnd(12, " ")}${inventor.last.padEnd(12, " ")}${
+  //     inventor.year
+  //   }`
+  // );
+  //   });
+}
+
+function miprint(inventor) {
+  console.log(
+    `${inventor.first.padEnd(12, " ")}${inventor.last.padEnd(12, " ")}${
+      inventor.year
+    }`
+  );
 }
 
 // 2. Un listado de inventores nacidos antes del 1800 y que su apellido empiece con la letra C
@@ -37,3 +45,29 @@ printInventors(
     year: inventor.year,
   }))
 );
+
+// 4.- Buscar el inventor Kepler y retornar el objeto
+console.log(inventors.find((inventor) => inventor.last == "Kepler"));
+
+// 5. Ordenar los inventores por año de nacimiento, de menor a mayor
+printInventors(
+  inventors.sort((a, b) => {
+    return b.year - a.year;
+  })
+);
+
+// 6. Convertir el array de inventores a este nuevo formato
+//  [
+//    {
+//            name: {first: 'first name', last: 'las name'},
+//            year: year
+//    }
+//  ]
+//
+
+let minuevoInventors = inventors.map((inventor) => ({
+  name: { first: inventor.first, last: inventor.last },
+  year: inventor.year,
+}));
+
+minuevoInventors[1].name.last;
