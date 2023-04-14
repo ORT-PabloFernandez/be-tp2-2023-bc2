@@ -24,3 +24,36 @@ const str = `<ul>
 // funciones que me permitar saber el total de duracion de un tipo video en segundos
 // Tip1: Lograr convertir la cadena en un array objetos
 // Tip2: Hacer un split
+
+function getVideos(str){
+  return str
+    .replace('<ul>','')
+    .replace('</ul>','')  
+    .split('</li>')
+    .slice(0,-1) // Elimina el ultimo elemento
+    .map(video => (
+      {
+        min: parseInt(video
+          .split('"')[1]
+          .split(":")[0]), 
+        seg: parseInt(video
+          .split('"')[1]
+          .split(":")[1]), 
+        tipo: video
+          .split(">")[1]
+      }
+      )
+    )
+}
+
+function getTotalSegundos(videos, tipo){
+  const videosFiltrados =  videos.filter(video => video.tipo === tipo);
+  let totalSegundos = 0;
+  for (const video of videosFiltrados) {
+    totalSegundos += video.seg + video.min * 60;
+  }
+  // .reduce
+  return totalSegundos;
+}
+
+console.log(getTotalSegundos(getVideos(str), "Flexbox Video"));
