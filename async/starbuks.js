@@ -21,8 +21,13 @@ function mostradorStarbucks(pedido, callbackCliente) {
 
 mostradorStarbucks(pedido1, (cliente) => {
   console.log(`Pedido terminado llamar a ${cliente}`);
+  mostradorStarbucks(pedido2, (cliente) => {
+    console.log(`Pedido terminado llamar a ${cliente}`);
+  });
 });
 
-mostradorStarbucks(pedido2, (cliente) => {
-  console.log(`Pedido terminado llamar a ${cliente}`);
-});
+// Promesas
+// async
+// await
+
+console.log("Hola mundo");
